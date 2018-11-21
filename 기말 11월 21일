@@ -13,8 +13,26 @@ r.encoding = 'euc-kr'
 #print(r.text)
 
 a = r.text
-a = a[49400:-28300]
+a = a[49400:-28320]
 #print(a)
 
 a = a.replace('<br />','\n')
+#print(a)
+
+#r = requests.get('http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15584&pageNo=1&m_div=A2')
+#r.encoding = 'euc-kr'
+#x = r.text
+#x = x[49400:-28300]
+#x = x.replace('<br />','\n')
+#print(x)
+
+a = a.replace('<td width="95" height="30"><img src="/images/emoticon/emotion_08.gif" align="absmiddle">','')
+a = a.replace('<strong>','댓글 닉네임 :')
+a = a[:a.find('</span>
+')] + a[a.find('꼬릿글 쓰기</b></td>
+'):]
+
+
 print(a)
+
+
