@@ -1,0 +1,20 @@
+import requests
+r = requests.get('http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15591&pageNo=1&m_div=A2')
+
+#http://www.cyberoro.com/column/column_list.oro?m_div=A2&group=38&pageNo=1&blockNo=1
+
+#http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15584&pageNo=1&m_div=A2
+
+#http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15591&pageNo=1&m_div=A2
+
+#print(r.text)
+#print(r.encoding)
+r.encoding = 'euc-kr'
+#print(r.text)
+
+a = r.text
+a = a[49400:-28300]
+#print(a)
+
+a = a.replace('<br />','\n')
+print(a)
