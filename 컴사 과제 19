@@ -1,0 +1,9 @@
+data = 'this is a boy you are a girl i am young you are old'
+for i in range(3):
+    print('i=',i,'data',data)
+    data = data[data.find('you'):]
+a = data.split('you ')
+print(a)
+
+b = 'you ' + a[2]
+print(b)
