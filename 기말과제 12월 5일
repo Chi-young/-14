@@ -1,0 +1,42 @@
+import requests
+import re
+
+#r = requests.get('http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15591&pageNo=1&m_div=A2')
+#r.encoding = 'euc-kr'
+
+#a = r.text
+#a = a[49400:-28320]
+#a = a.replace('<br />','\n')
+
+#a = a.replace('<strong>','댓글 닉네임 :')
+#a = a[:a.find('</span>')] + a[a.find('꼬릿글 쓰기</b></td>'):]
+
+#a = re.sub('<.+?>','',a)
+
+#a = a.replace('&nbsp;',' ')
+
+#print(a)
+
+
+for x in range(15000,15010):
+#    for y in range(10):
+        text = 'http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no= %d &pageNo= %d &m_div=A2' % (x,1)
+        #print('주소링크 :',text)
+        r = requests.get(text)
+        r.encoding = 'euc-kr'
+        b = r.text
+        b = b[49400:-28320]
+        b = b.replace('<br />','\n')
+        b = b.replace('<strong>','댓글 닉네임 :')
+        #b = b.replace('\r', '')
+        #b = b.replace('\t', '')
+        b = b[:b.find('</span>')] + b[b.find('꼬릿글 쓰기</b></td>'):b.find('var oldDiv;')]
+        b = re.sub('<.+?>','',b)
+
+        a = b.replace('&nbsp;',' ')
+        #a=b.split('\n')
+        print(a)
+    
+
+
+#r = requests.get('http://www.cyberoro.com/column/column_view.oro?group=38&div=85&column_no=15591&pageNo=1&m_div=A2')
